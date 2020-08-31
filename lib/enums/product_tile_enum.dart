@@ -1,0 +1,1 @@
+enum ProductTileEnum { GRID, LIST }

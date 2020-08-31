@@ -1,0 +1,253 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "João Victor Moreira",
+      "email": "teste@teste.com",
+      "password": "123mudar"
+    },
+    {
+      "id": 2,
+      "name": "scacwac",
+      "email": "svsvs",
+      "password": "svscs "
+    }
+  ],
+  "promos": [
+    {
+      "id": 1,
+      "image_url": "https://i.pinimg.com/564x/23/27/2f/23272f8e17e60635a1740aa426c8022b.jpg",
+      "pos": 0,
+      "x": 2,
+      "y": 2
+    },
+    {
+      "id": 2,
+      "image_url": "https://i.pinimg.com/564x/b0/ff/a1/b0ffa10aad30cb1739ba6c2595cfb068.jpg",
+      "pos": 1,
+      "x": 2,
+      "y": 1
+    },
+    {
+      "id": 3,
+      "image_url": "https://i.pinimg.com/564x/f4/63/35/f46335f42b5a90330572de66ab2e29b0.jpg",
+      "pos": 2,
+      "x": 1,
+      "y": 2
+    },
+    {
+      "id": 4,
+      "image_url": "https://i.pinimg.com/564x/3d/62/a3/3d62a37713cb7f95abf30d5388e42053.jpg",
+      "pos": 3,
+      "x": 1,
+      "y": 1
+    },
+    {
+      "id": 5,
+      "image_url": "https://i.pinimg.com/564x/37/11/ab/3711ab6da219d93f12da21c9e20672fe.jpg",
+      "pos": 4,
+      "x": 2,
+      "y": 2
+    },
+    {
+      "id": 6,
+      "image_url": "https://i.pinimg.com/564x/14/ae/48/14ae482ccc548c5f7f6fe46a6bc14fa6.jpg",
+      "pos": 5,
+      "x": 2,
+      "y": 1
+    },
+    {
+      "id": 7,
+      "image_url": "https://i.pinimg.com/564x/2c/7c/85/2c7c854ecbed75db4541fb21a3617a66.jpg",
+      "pos": 6,
+      "x": 1,
+      "y": 1
+    }
+  ],
+  "productsCategories": [
+    {
+      "id": 1,
+      "title": "Bolas",
+      "products": [
+        {
+          "id": 1,
+          "title": "Bola Nike Strike CR7 Safari Campo",
+          "description": "A Bola de Futebol Nike Strike CR7 está pronta para voar até o fundo da rede. Parte externa texturizada com sulcos estabilizantes ajuda você a colocar a bola onde deseja. Estampa exclusiva para homenagear o Cristiano Ronaldo e sua velocidade extraordinária.",
+          "genders": [
+            {
+              "gender": "U",
+              "items": [
+                {
+                  "price": 119.99,
+                  "sizes": [
+                    "ÚNICO"
+                  ],
+                  "colors": [
+                    {
+                      "color": "BRANCO",
+                      "images": [
+                        {
+                          "id": 1,
+                          "image_url": "https://images.lojanike.com.br/860x860/produto/252315_2234568_20200618162121.jpg"
+                        },
+                        {
+                          "id": 2,
+                          "image_url": "https://images.lojanike.com.br/860x860/produto/252315_2234571_20200618162121.jpg"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Tênis",
+      "products": [
+        {
+          "id": 1,
+          "title": "Tênis Nike Air Max 270 React Worldwide Edição Especial Masculino",
+          "description": "O primeiro estilo de vida Air Max da Nike agora conta com espuma mais macia, mais suave e mais resistente no Nike Air Max 270 React. O design é inspirado no panteão do Air Max, celebrando a unificação do esporte. Com o escudo da Nike Worldwide, ele mostra a maior conquista da Nike: levar o esporte para todos.",
+          "genders": [
+            {
+              "gender": "M",
+              "items": [
+                {
+                  "price": 799.99,
+                  "sizes": [
+                    "37",
+                    "38",
+                    "39",
+                    "40",
+                    "41",
+                    "42",
+                    "43",
+                    "44",
+                    "45"
+                  ],
+                  "colors": [
+                    {
+                      "color": "PRETO",
+                      "images": [
+                        {
+                          "id": 1,
+                          "image_url": "https://images.lojanike.com.br/1024x1024/produto/250386_2309781_20200721161121.jpg"
+                        },
+                        {
+                          "id": 2,
+                          "image_url": "https://images.lojanike.com.br/1024x1024/produto/250386_2309815_20200721161121.jpg"
+                        },
+                        {
+                          "id": 3,
+                          "image_url": "https://images.lojanike.com.br/1024x1024/produto/250386_2309849_20200721161121.jpg"
+                        },
+                        {
+                          "id": 4,
+                          "image_url": "https://images.lojanike.com.br/1024x1024/produto/250386_2309883_20200721161121.jpg"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Bolsas & Mochilas",
+      "products": [
+        {
+          "id": 1,
+          "title": "Mochila Nike Utility Elite Masculina",
+          "description": "A mochila Nike Utility Elite mantém seu equipamento próximo, seguro e organizado enquanto se desloca entre as sessões de treinamento. As alças acolchoadas proporcionam conforto para levá-la a qualquer lugar, e a sacola é aberta para fácil acesso às suas necessidades.",
+          "genders": [
+            {
+              "gender": "M",
+              "items": [
+                {
+                  "price": 499.99,
+                  "sizes": [
+                    "ÚNICO"
+                  ],
+                  "colors": [
+                    {
+                      "color": "MARROM",
+                      "images": [
+                        {
+                          "id": 1,
+                          "image_url": "https://images.lojanike.com.br/1024x1024/produto/216909_2018589_20200319152814.jpg"
+                        },
+                        {
+                          "id": 2,
+                          "image_url": "https://images.lojanike.com.br/1024x1024/produto/216909_2018590_20200319152814.jpg"
+                        },
+                        {
+                          "id": 3,
+                          "image_url": "https://images.lojanike.com.br/1024x1024/produto/216909_2018592_20200319152814.jpg"
+                        },
+                        {
+                          "id": 4,
+                          "image_url": "https://images.lojanike.com.br/1024x1024/produto/216909_2018594_20200319152814.jpg"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Bonés e Viseiras",
+      "products": [
+        {
+          "id": 1,
+          "title": "Boné Nike Heritage86",
+          "description": "Demonstre orgulho da sua liga no boné da Nike Heritage 86. Ele é feito de sarja de algodão com uma viseira pré-curvada e não é estruturado para um ajuste mais descontraído.",
+          "genders": [
+            {
+              "gender": "U",
+              "items": [
+                {
+                  "price": 99.99,
+                  "sizes": [
+                    "ÚNICO"
+                  ],
+                  "colors": [
+                    {
+                      "color": "AZUL",
+                      "images": [
+                        {
+                          "id": 1,
+                          "image_url": "https://images.lojanike.com.br/1024x1024/produto/259998_2235393_20200623210005.png"
+                        },
+                        {
+                          "id": 2,
+                          "image_url": "https://images.lojanike.com.br/1024x1024/produto/259998_2235394_20200623210006.png"
+                        }
+                      ]
+                    },
+                    {
+                      "color": "PRETO",
+                      "images": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
