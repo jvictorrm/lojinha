@@ -6,17 +6,24 @@ import 'package:lojinha/widgets/custom_button.dart';
 import 'package:lojinha/widgets/custom_text_form.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   // controllers
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   // global keys
   final _formKey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: _scaffoldKey,
         appBar: AppBar(
           title: Text("Login"),
           centerTitle: true,
@@ -62,7 +69,11 @@ class LoginScreen extends StatelessWidget {
                   () {
                     if (!_formKey.currentState.validate()) {}
 
-                    model.signIn();
+                    model.signIn(
+                        email: _emailController.text,
+                        password: _passwordController.text,
+                        onSuccess: _onSuccess,
+                        onFail: _onFail);
                   },
                 ),
                 SizedBox(
@@ -70,7 +81,26 @@ class LoginScreen extends StatelessWidget {
                 ),
                 FlatButton(
                   padding: EdgeInsets.zero,
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_emailController.text.isEmpty) {
+                      _scaffoldKey.currentState.showSnackBar(SnackBar(
+                          content: Text(
+                            "Informe seu email para recuperação",
+                            style: TextStyle(color: Colors.redAccent),
+                          ),
+                          backgroundColor: Theme.of(context).backgroundColor,
+                          duration: Duration(seconds: 2)));
+                      return;
+                    }
+                    model.recoverPass(_emailController.text);
+                    _scaffoldKey.currentState.showSnackBar(SnackBar(
+                        content: Text(
+                          "Foi enviado um email para recuperação de senha",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        backgroundColor: Theme.of(context).backgroundColor,
+                        duration: Duration(seconds: 2)));
+                  },
                   child: Text(
                     "Esqueceu a senha?",
                     textAlign: TextAlign.center,
@@ -98,5 +128,19 @@ class LoginScreen extends StatelessWidget {
             ),
           );
         }));
+  }
+
+  void _onSuccess() {
+    Navigator.of(context).pop();
+  }
+
+  void _onFail() {
+    _scaffoldKey.currentState.showSnackBar(SnackBar(
+        content: Text(
+          "Falha no login",
+          style: TextStyle(color: Colors.redAccent),
+        ),
+        backgroundColor: Theme.of(context).backgroundColor,
+        duration: Duration(seconds: 2)));
   }
 }

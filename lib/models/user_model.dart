@@ -9,6 +9,12 @@ class UserModel extends Model {
   Map<String, dynamic> user = Map();
   bool isLoading = false;
 
+  @override
+  void addListener(listener) {
+    super.addListener(listener);
+    _loadCurrentUser();
+  }
+
   void signUp(
       {@required Map<String, dynamic> userData,
       @required VoidCallback onSuccess,
@@ -33,10 +39,9 @@ class UserModel extends Model {
       @required String password,
       @required VoidCallback onSuccess,
       @required VoidCallback onFail}) async {
-    user = null;
     isLoading = true;
+    this._loadCurrentUser();
     notifyListeners();
-    user = await _authAPI(email, password);
 
     if (user == null) {
       onFail();
@@ -48,7 +53,7 @@ class UserModel extends Model {
     notifyListeners();
   }
 
-  void recoverPass(String newPassword) {}
+  void recoverPass(String email) {}
 
   bool isLoggedIn() {
     return user != null && user.isNotEmpty;
@@ -84,5 +89,18 @@ class UserModel extends Model {
       return json.decode(responseAPI.body);
     }
     return null;
+  }
+
+  Future<Null> _loadCurrentUser() async {
+    if (!this.isLoggedIn()) {
+      user = {
+        "id": 1,
+        "name": "João Victor Moreira",
+        "email": "teste@teste.com",
+        "password": "123mudar"
+      };
+    }
+
+    notifyListeners();
   }
 }

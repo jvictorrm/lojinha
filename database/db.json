@@ -4,13 +4,8 @@
       "id": 1,
       "name": "João Victor Moreira",
       "email": "teste@teste.com",
-      "password": "123mudar"
-    },
-    {
-      "id": 2,
-      "name": "João",
-      "email": "Rua Teste",
-      "password": "123456"
+      "password": "123mudar",
+      "address": "Rua Teste"
     }
   ],
   "promos": [
@@ -79,9 +74,7 @@
               "items": [
                 {
                   "price": 119.99,
-                  "sizes": [
-                    "ÚNICO"
-                  ],
+                  "sizes": ["ÚNICO"],
                   "colors": [
                     {
                       "color": "BRANCO",
@@ -173,9 +166,7 @@
               "items": [
                 {
                   "price": 499.99,
-                  "sizes": [
-                    "ÚNICO"
-                  ],
+                  "sizes": ["ÚNICO"],
                   "colors": [
                     {
                       "color": "MARROM",
@@ -220,9 +211,7 @@
               "items": [
                 {
                   "price": 99.99,
-                  "sizes": [
-                    "ÚNICO"
-                  ],
+                  "sizes": ["ÚNICO"],
                   "colors": [
                     {
                       "color": "AZUL",

@@ -51,11 +51,13 @@ class CustomDrawer extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                  "Olá, ${!model.isLoggedIn() ? "" : model.user["name"]}",
-                                  style: TextStyle(
-                                    fontSize: 30.0,
-                                    color: Colors.white,
-                                  )),
+                                "Olá, ${!model.isLoggedIn() ? "" : model.user["name"].split(" ")[0]}",
+                                style: TextStyle(
+                                  fontSize: 30.0,
+                                  color: Colors.white,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
                               GestureDetector(
                                 child: Row(
                                   children: [
@@ -69,7 +71,9 @@ class CustomDrawer extends StatelessWidget {
                                             decoration:
                                                 TextDecoration.underline)),
                                     Icon(
-                                      Icons.launch,
+                                      !model.isLoggedIn()
+                                          ? Icons.lock_outline
+                                          : Icons.exit_to_app,
                                       color: Colors.white,
                                       size: 18.0,
                                     )
