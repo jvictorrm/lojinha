@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).backgroundColor,
         body:
             ScopedModelDescendant<UserModel>(builder: (context, child, model) {
-          if (model.user == null)
+          if (model.isLoading)
             return Center(
               child: CircularProgressIndicator(),
             );

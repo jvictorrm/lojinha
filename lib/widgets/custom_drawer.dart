@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lojinha/models/user_model.dart';
 import 'package:lojinha/screens/login_screen.dart';
 import 'package:lojinha/widgets/custom_background.dart' as bgGrad;
 import 'package:lojinha/widgets/tiles/drawer_tiles.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class CustomDrawer extends StatelessWidget {
   final PageController _pageController;
@@ -43,36 +45,49 @@ class CustomDrawer extends StatelessWidget {
                     Positioned(
                       left: 10.0,
                       bottom: 0.0,
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Olá, ",
-                                style: TextStyle(
-                                  fontSize: 30.0,
-                                  color: Colors.white,
-                                )),
-                            GestureDetector(
-                              child: Row(
-                                children: [
-                                  Text("Entre ou cadastre-se ",
-                                      style: TextStyle(
-                                          fontSize: 20.0,
-                                          color: Colors.white,
-                                          decoration:
-                                              TextDecoration.underline)),
-                                  Icon(
-                                    Icons.launch,
+                      child: ScopedModelDescendant<UserModel>(
+                          builder: (context, child, model) {
+                        return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                  "Olá, ${!model.isLoggedIn() ? "" : model.user["name"]}",
+                                  style: TextStyle(
+                                    fontSize: 30.0,
                                     color: Colors.white,
-                                    size: 18.0,
-                                  )
-                                ],
-                              ),
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => LoginScreen()));
-                              },
-                            )
-                          ]),
+                                  )),
+                              GestureDetector(
+                                child: Row(
+                                  children: [
+                                    Text(
+                                        !model.isLoggedIn()
+                                            ? "Entre ou cadastre-se "
+                                            : "Sair",
+                                        style: TextStyle(
+                                            fontSize: 20.0,
+                                            color: Colors.white,
+                                            decoration:
+                                                TextDecoration.underline)),
+                                    Icon(
+                                      Icons.launch,
+                                      color: Colors.white,
+                                      size: 18.0,
+                                    )
+                                  ],
+                                ),
+                                onTap: () {
+                                  if (!model.isLoggedIn()) {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                LoginScreen()));
+                                  } else {
+                                    model.signOut();
+                                  }
+                                },
+                              )
+                            ]);
+                      }),
                     )
                   ],
                 ),

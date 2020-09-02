@@ -18,7 +18,7 @@ class _MainState extends State<Main> {
   void initState() {
     super.initState();
     SharedPreferences.getInstance().then(
-        (prefs) => prefs.setString("apiURL", "http://42028fe45e09.ngrok.io"));
+        (prefs) => prefs.setString("apiURL", "http://b48da9236e35.ngrok.io"));
   }
 
   @override

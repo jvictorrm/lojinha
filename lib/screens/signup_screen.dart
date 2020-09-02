@@ -5,7 +5,12 @@ import 'package:lojinha/widgets/custom_button.dart';
 import 'package:lojinha/widgets/custom_text_form.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
+  @override
+  _SignupScreenState createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
   // controllers
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
@@ -14,10 +19,12 @@ class SignupScreen extends StatelessWidget {
 
   // global keys
   final _formKey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: _scaffoldKey,
         appBar: AppBar(
           title: Text("Cadastrar conta"),
           centerTitle: true,
@@ -25,7 +32,7 @@ class SignupScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).backgroundColor,
         body:
             ScopedModelDescendant<UserModel>(builder: (context, child, model) {
-          if (model.user == null)
+          if (model.isLoading)
             return Center(
               child: CircularProgressIndicator(),
             );
@@ -86,12 +93,37 @@ class SignupScreen extends StatelessWidget {
                     };
 
                     model.signUp(
-                        userData: userData, onSuccess: () {}, onFail: () {});
+                        userData: userData,
+                        onSuccess: _onSuccess,
+                        onFail: _onFail);
                   },
                 ),
               ],
             ),
           );
         }));
+  }
+
+  void _onSuccess() {
+    _scaffoldKey.currentState.showSnackBar(SnackBar(
+      content: Text(
+        "Sua conta foi criada com sucesso!",
+        style: TextStyle(color: Colors.white),
+      ),
+      backgroundColor: Theme.of(context).backgroundColor,
+      duration: Duration(seconds: 2),
+    ));
+    Future.delayed(Duration(seconds: 2))
+        .then((_) => Navigator.of(context).pop());
+  }
+
+  void _onFail() {
+    _scaffoldKey.currentState.showSnackBar(SnackBar(
+        content: Text(
+          "Falha na criação da sua conta",
+          style: TextStyle(color: Colors.redAccent),
+        ),
+        backgroundColor: Theme.of(context).backgroundColor,
+        duration: Duration(seconds: 2)));
   }
 }
